@@ -105,10 +105,12 @@ $(document).ready(function(){
         var listItem = msgs.getElementsByTagName("li");
         var listLength = listItem.length;
         for (i = 1; i < listLength; i++) {
-            if (i != 1) 
-                combinedStr += (" " + listItem[i].innerHTML);
-            else
-                combinedStr += listItem[i].innerHTML;
+            if($(listItem[i]).hasClass('selected-msg')) {
+                if (i != 1) 
+                    combinedStr += (" " + listItem[i].innerHTML);
+                else
+                    combinedStr += listItem[i].innerHTML;
+            }
         }
 
         $("#shell-messages").append("<li class='terminal-msg'>" + combinedStr + "</li>");
