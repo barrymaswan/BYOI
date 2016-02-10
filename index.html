@@ -22,22 +22,34 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-      <div class="container text-center header-content">
-        <h1>Bring Your Own Internet</h1>
-      </div>
+      
 
-    <div class="container">
-        <div id="sendingButtons" class="col-sm-3  col-md-3 col-lg-3">
-          <div class="btn-group-vertical" role="group">
-            <button type="button" class="myButton" id="encrypt-btn">Encrypt</button>
-            <br>
-            <button type="button" class="myButton" id="split-btn">Split</button>
-            <br>
-            <button type="button" class="myButton" id="add-checksum-btn">Add Checksum</button>
-            <br>
-            <button type="button" class="myButton" id="send-btn">Send</button>
+    <div class="container" id="mainDiv">
+
+        <div class="text-center">
+          <img src="img/logo.png" class="logo">
+        </div>
+        <div class="container text-center header-content">
+          <h2>Bring Your Own Internet</h2>
+        </div>
+
+
+        <div id="sendingButtons" class="col-sm-3  col-md-3 col-lg-3 sidebar text-center">
+          <div class="btn-group-vertical text-center" role="group">
+            <!-- <button type="button" class="myButton" id="encrypt-btn">Encrypt</button> -->
+            <span class="sidebar-link" id="encrypt-btn">Encrypt</span>
+            <hr>
+            <!-- <button type="button" class="myButton" id="split-btn">Split</button> -->
+            <span class="sidebar-link" id="split-btn">Split</span>
+            <hr>
+            <!-- <button type="button" class="myButton" id="add-checksum-btn">Add Checksum</button> -->
+            <span class="sidebar-link" id="add-checksum-btn">Add Checksum</span>
+            <hr>
+            <!-- <button type="button" class="myButton" id="send-btn">Send</button> -->
+            <span class="sidebar-link" id="send-btn">Send</span>
           </div>
         </div>
+
 
         <div id="messagesBox" class="col-sm-6 col-md-6 col-lg-6">
           <div class="shell-wrap">
@@ -56,28 +68,50 @@
         </div>
 
 
-        <div id="receivingButtons" class="col-sm-3 col-md-3 col-lg-3">
-          <div class="btn-group-vertical" role="group">
-            <button type="button" class="myButton" id="receive-msg-btn">Receive Message</button>
-            <br>
-            <button type="button" class="myButton" id="verify-checksum-btn">Verify Checksum</button>
-            <br>
-            <button type="button" class="myButton" id="decrypt-btn">Decrypt</button>
-            <br>
-            <button type="button" class="myButton" id="combine-btn">Combine</button>
+        <div id="receivingButtons" class="col-sm-3 col-md-3 col-lg-3 text-center sidebar">
+          <div class="btn-group-vertical text-center" role="group">
+            <!-- <button type="button" class="myButton" id="receive-msg-btn">Receive Message</button> -->
+            <span class="sidebar-link" id="receive-msg-btn">Receive Message</span>
+            <hr>
+            <!-- <button type="button" class="myButton" id="verify-checksum-btn">Verify Checksum</button> -->
+            <span class="sidebar-link" id="verify-checksum-btn">Verify Checksum</span>
+            <hr>
+            <!-- <button type="button" class="myButton" id="decrypt-btn">Decrypt</button> -->
+            <span class="sidebar-link" id="decrypt-btn">Decrypt</span>
+            <hr>
+            <!-- <button type="button" class="myButton" id="combine-btn">Combine</button> -->
+            <span class="sidebar-link" id="combine-btn">Combine</span>
           </div>
         </div>
-    </div>
-    
-      <hr>
 
-      <div class="container text-center">
-        <footer>
-          <p>&copy; Barry | Suraj | Kuga | Jake | 2016</p>
-        </footer>
-      </div>
+        <!-- Modal for displaying success/failure messages -->
+      <div id="msgModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm"> <!-- this class sets the proper width and margin of the modal -->
 
-     <!-- /container -->        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Attention</h4>
+            </div>
+            <div class="modal-body">
+              <p>The message was successfuly sent</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div> 
+
+
+
+
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>

@@ -1,3 +1,5 @@
+var msgSelected = false;
+
 $(document).ready(function(){
     $("#textbox-msg").on('keydown', function(e){
         if(e.which == 13) {
@@ -11,8 +13,10 @@ $(document).ready(function(){
         if($(this).hasClass('selected-msg')){
             $(this).removeClass('selected-msg');
             $("#textbox-msg").val("");
+            msgSelected = false;
         } else {
             $(this).addClass('selected-msg');
+            msgSelected = true;
             var content = $(this).html();
             $("#textbox-msg").val(content);
         }
@@ -23,19 +27,23 @@ $(document).ready(function(){
     // encryption in this fn is a place holder for the actual encryption that
     // will be happening in the backend
     $("#encrypt-btn").on('click', function() {
-        var content = $('.selected-msg').html();
-        var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
-        content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
-        var coded = "";
-        var chr;
-          for (var i = content.length - 1; i >= 0; i--) {
-            chr = content.charCodeAt(i);
-            coded += (chr >= 65 && chr <= 90) ? 
-              key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
-              String.fromCharCode(chr); 
+        if (msgSelected == false) {
+            alert("Select a message first");
+        } else {
+            var content = $('.selected-msg').html();
+            var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
+            content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
+            var coded = "";
+            var chr;
+              for (var i = content.length - 1; i >= 0; i--) {
+                chr = content.charCodeAt(i);
+                coded += (chr >= 65 && chr <= 90) ? 
+                  key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
+                  String.fromCharCode(chr); 
+            }
+            $("#textbox-msg").val(coded);
+            $(".selected-msg").html(coded);
         }
-        $("#textbox-msg").val(coded);
-        $(".selected-msg").html(coded);
 
     });
 
@@ -55,7 +63,7 @@ $(document).ready(function(){
     });
 
     $("#send-btn").on('click', function() {
-
+        $("#msgModal").modal();
 
     });
 
