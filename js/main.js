@@ -66,7 +66,7 @@ $(document).ready(function(){
 
     $("#send-btn").on('click', function() {
         $("#msgModal").modal();
-        $(".selected-msg").removeClass('terminal-msg').removeClass('selected-msg').addClass('sent-terminal-msg');
+        $(".selected-msg").addClass('sent-terminal-msg');
 
     });
 
