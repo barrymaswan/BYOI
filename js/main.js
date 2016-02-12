@@ -58,7 +58,9 @@ $(document).ready(function(){
     });
 
     $("#add-checksum-btn").on('click', function() {
-
+        var content = $('.selected-msg').html();
+        var checksum = Math.random() * 100;
+        $('.selected-msg').html(content + ":" + parseInt(checksum).toString());
 
     });
 
@@ -70,12 +72,12 @@ $(document).ready(function(){
     // event listeners for receiving messages
 
     $("#receive-msg-btn").on('click', function() {
-
+        alert("message has been received");
 
     });
 
     $("#verify-checksum-btn").on('click', function() {
-
+        alert("checksum valid");
 
     });
 
