@@ -132,7 +132,15 @@ h2.header-content {
 
 /* class for messages added to the messages screen */
 .terminal-msg{
+	color: red;
+}
 
+.sent-terminal-msg {
+	color: #45D40C;
+}
+
+.received-terminal-msg {
+	color: #00bfff;
 }
 
 .terminal-msg:hover {

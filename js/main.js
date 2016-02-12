@@ -1,4 +1,4 @@
-var msgSelected = false;
+var msgSelected = false;    
 
 $(document).ready(function(){
     $("#textbox-msg").on('keydown', function(e){
@@ -66,16 +66,26 @@ $(document).ready(function(){
 
     $("#send-btn").on('click', function() {
         $("#msgModal").modal();
+        $(".selected-msg").removeClass('terminal-msg').removeClass('selected-msg').addClass('sent-terminal-msg');
 
     });
-
-
 
     // event listeners for receiving messages
 
     $("#receive-msg-btn").on('click', function() {
         alert("message has been successfully received");
-        $("#shell-messages").append("<li class='terminal-msg'>Hello from the other side</li>");
+        var content = 'hello from the other side';
+        var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
+        content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
+        var coded = "";
+        var chr;
+          for (var i = content.length - 1; i >= 0; i--) {
+            chr = content.charCodeAt(i);
+            coded += (chr >= 65 && chr <= 90) ? 
+              key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
+              String.fromCharCode(chr); 
+        }
+        $("#shell-messages").append("<li class='terminal-msg received-terminal-msg'>"+coded+"</li>");
 
     });
 
@@ -86,7 +96,11 @@ $(document).ready(function(){
     });
 
     $("#verify-checksum-btn").on('click', function() {
-        alert("checksum valid");
+        if (msgSelected == false) {
+            alert("Select a message first");
+        } else {
+            alert("checksum valid");
+        }
 
     });
 
