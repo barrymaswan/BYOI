@@ -72,7 +72,8 @@ $(document).ready(function(){
     // event listeners for receiving messages
 
     $("#receive-msg-btn").on('click', function() {
-        alert("message has been received");
+        alert("message has been successfully received");
+        $("#shell-messages").append("<li class='terminal-msg'>Hello from the other side</li>");
 
     });
 
