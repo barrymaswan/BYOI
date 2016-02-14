@@ -1,6 +1,45 @@
-var msgSelected = false;    
+var msgSelected = false;
+
+// en(de)crpyt function got from: http://www.mvjantzen.com/blog/?p=1005
+
+function encrypt(content)
+{
+    var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
+            content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
+            var coded = "";
+            var chr;
+              for (var i = content.length - 1; i >= 0; i--) {
+                chr = content.charCodeAt(i);
+                coded += (chr >= 65 && chr <= 90) ? 
+                  key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
+                  String.fromCharCode(chr); 
+            }
+
+            return coded;
+}
+
+function decrypt(coded)
+{
+    var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
+          
+          coded = decodeURIComponent(coded);  
+          var uncoded = "";
+          var chr;
+          for (var i = coded.length - 1; i >= 0; i--) {
+            chr = coded.charAt(i);
+            uncoded += (chr >= "a" && chr <= "z" || chr >= "A" && chr <= "Z") ?
+              String.fromCharCode(65 + key.indexOf(chr) % 26) :
+              chr; 
+            }
+        uncoded = uncoded.toLowerCase();
+        return uncoded;
+}
+
+
 
 $(document).ready(function(){
+    $("#shell-messages").sortable();
+    $("#shell-messages").disableSelection();
     $("#textbox-msg").on('keydown', function(e){
         if(e.which == 13) {
             var content = $(this).val();
@@ -30,19 +69,24 @@ $(document).ready(function(){
         if (msgSelected == false) {
             alert("Select a message first");
         } else {
-            var content = $('.selected-msg').html();
-            var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
-            content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
-            var coded = "";
-            var chr;
-              for (var i = content.length - 1; i >= 0; i--) {
-                chr = content.charCodeAt(i);
-                coded += (chr >= 65 && chr <= 90) ? 
-                  key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
-                  String.fromCharCode(chr); 
+            var msgs = document.getElementById("shell-messages");
+            var listItem = msgs.getElementsByTagName("li");
+            var listLength = listItem.length;
+            for (i = 1; i < listLength; i++) {
+                if ($(listItem[i]).hasClass('encrypted')) {
+                    alert("The message is already encrypted");
+                    return;
+                }
+                if($(listItem[i]).hasClass('selected-msg')) {
+                    var coded = encrypt(listItem[i].innerHTML);
+                    $(listItem[i]).addClass('encrypted');
+                    listItem[i].innerHTML = coded;
+                    // $(listItem[i]).val(coded);
+                }
             }
-            $("#textbox-msg").val(coded);
-            $(".selected-msg").html(coded);
+            // var content = $('.selected-msg').html();
+            // var coded = encrypt(content);
+            // $(".selected-msg").html(coded);
         }
 
     });
@@ -72,19 +116,11 @@ $(document).ready(function(){
 
     // event listeners for receiving messages
 
+    // encrypting messages for purposes of the demo
     $("#receive-msg-btn").on('click', function() {
         alert("message has been successfully received");
         var content = 'hello from the other side';
-        var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
-        content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
-        var coded = "";
-        var chr;
-          for (var i = content.length - 1; i >= 0; i--) {
-            chr = content.charCodeAt(i);
-            coded += (chr >= 65 && chr <= 90) ? 
-              key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
-              String.fromCharCode(chr); 
-        }
+        var coded = encrypt(content);
         $("#shell-messages").append("<li class='terminal-msg received-terminal-msg'>"+coded+"</li>");
 
     });
@@ -101,26 +137,30 @@ $(document).ready(function(){
         } else {
             alert("checksum valid");
         }
-
     });
 
-    // http://www.mvjantzen.com/blog/?p=1005
+    
 
     $("#decrypt-btn").on('click', function() {
-         var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
-          var coded = $('.selected-msg').html();
-          coded = decodeURIComponent(coded);  
-          var uncoded = "";
-          var chr;
-          for (var i = coded.length - 1; i >= 0; i--) {
-            chr = coded.charAt(i);
-            uncoded += (chr >= "a" && chr <= "z" || chr >= "A" && chr <= "Z") ?
-              String.fromCharCode(65 + key.indexOf(chr) % 26) :
-              chr; 
+        if (msgSelected == false) {
+            alert("Select a message first");
+        } else {
+            var msgs = document.getElementById("shell-messages");
+            var listItem = msgs.getElementsByTagName("li");
+            var listLength = listItem.length;
+            for (i = 1; i < listLength; i++) {
+                if ($(listItem[i]).hasClass('decrypted')) {
+                    alert("The message is already decrypted");
+                    return;
+                }
+                if($(listItem[i]).hasClass('selected-msg')) {
+                    var uncoded = decrypt(listItem[i].innerHTML);
+                    $(listItem[i]).addClass('decrypted');
+                    listItem[i].innerHTML = uncoded;
+                }
             }
-        uncoded = uncoded.toLowerCase();
-        $("#textbox-msg").val(uncoded);
-        $(".selected-msg").html(uncoded);
+        }
+
 
     });
 
