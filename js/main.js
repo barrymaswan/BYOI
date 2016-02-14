@@ -81,12 +81,8 @@ $(document).ready(function(){
                     var coded = encrypt(listItem[i].innerHTML);
                     $(listItem[i]).addClass('encrypted');
                     listItem[i].innerHTML = coded;
-                    // $(listItem[i]).val(coded);
                 }
             }
-            // var content = $('.selected-msg').html();
-            // var coded = encrypt(content);
-            // $(".selected-msg").html(coded);
         }
 
     });
@@ -114,6 +110,7 @@ $(document).ready(function(){
 
     });
 
+    /////////////////////////////////////////////////////////////////////////////
     // event listeners for receiving messages
 
     // encrypting messages for purposes of the demo
