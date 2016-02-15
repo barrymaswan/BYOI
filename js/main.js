@@ -137,7 +137,10 @@ $(document).ready(function(){
     });
 
     $("#delete-msg-btn").on('click', function() {
+        $(".selected-msg").removeClass("encrypt");
+        $(".selected-msg").removeClass("decrypt");
         $(".selected-msg").addClass("hidden");
+        $(".selected-msg").removeClass("selected-msg");
         $("#textbox-msg").val("");
 
     });
