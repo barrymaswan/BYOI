@@ -49,16 +49,29 @@ $(document).ready(function(){
     });
 
     $(document).on('click', 'li.terminal-msg', function() {
-        if($(this).hasClass('selected-msg')){
-            $(this).removeClass('selected-msg');
-            $("#textbox-msg").val("");
-            msgSelected = false;
-        } else {
-            $(this).addClass('selected-msg');
-            msgSelected = true;
-            var content = $(this).html();
-            $("#textbox-msg").val(content);
+        var msgs = document.getElementById("shell-messages");
+        var listItem = msgs.getElementsByTagName("li");
+        var listLength = listItem.length;
+        
+            if($(this).hasClass('selected-msg')){
+                $(this).removeClass('selected-msg');
+                $("#textbox-msg").val("");
+                // msgSelected = false;
+            } else {
+                $(this).addClass('selected-msg');
+                // msgSelected = true;
+                var content = $(this).html();
+                $("#textbox-msg").val(content);
+            }
+
+        for (i = 1; i < listLength; i++) {
+            if ($(listItem[i]).hasClass('selected-msg')) {
+                msgSelected = true;
+                return;
+            }
         }
+
+        msgSelected = false;
     });
 
     // event listeners for sending messages
@@ -80,6 +93,7 @@ $(document).ready(function(){
                 if($(listItem[i]).hasClass('selected-msg')) {
                     var coded = encrypt(listItem[i].innerHTML);
                     $(listItem[i]).addClass('encrypted');
+                    $(listItem[i]).removeClass('decrypted');
                     listItem[i].innerHTML = coded;
                 }
             }
@@ -118,7 +132,7 @@ $(document).ready(function(){
         alert("message has been successfully received");
         var content = 'hello from the other side';
         var coded = encrypt(content);
-        $("#shell-messages").append("<li class='terminal-msg received-terminal-msg'>"+coded+"</li>");
+        $("#shell-messages").append("<li class='terminal-msg received-terminal-msg encrypted'>"+coded+"</li>");
 
     });
 
@@ -146,14 +160,16 @@ $(document).ready(function(){
             var listItem = msgs.getElementsByTagName("li");
             var listLength = listItem.length;
             for (i = 1; i < listLength; i++) {
-                if ($(listItem[i]).hasClass('decrypted')) {
-                    alert("The message is already decrypted");
-                    return;
-                }
+                // if ($(listItem[i]).hasClass('decrypted')) {
+                //     alert("The message is already decrypted");
+                //     return;
+                // }
                 if($(listItem[i]).hasClass('selected-msg')) {
                     var uncoded = decrypt(listItem[i].innerHTML);
                     $(listItem[i]).addClass('decrypted');
+                    $(listItem[i]).removeClass('encrypted');
                     listItem[i].innerHTML = uncoded;
+                    $("#textbox-msg").val(uncoded);
                 }
             }
         }
