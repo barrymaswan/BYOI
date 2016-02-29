@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Just a show for the new BYOI</title>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+    ></script>
+    <script>
+        var BYOI = {}; //api object
+        /*
+            API:
+                methods:
+                    addChecksum: ()
+                    addMessage: ()
+                    addRandomNumber: ()
+                    combineMessages: ()
+                    decryptMessage: (key)
+                    deleteMessages: ()
+                    encryptMessage: (key)
+                    moveMessagesDown: ()
+                    moveMessagesUp: ()
+                    sendMessage: ()
+                    splitMessages: (len)
+                    verifyChecksum: ()
+                properties:
+                    connection
+                    myName
+                    myNode
+                    mySession
+        */
+    </script>
+    <!-- include all the button handlers and websocket connection -->
+    <script src="js/connection.js"></script>
+    <script src="js/add.js"></script>
+    <script src="js/combination.js"></script>
+    <script src="js/encryption.js"></script>
+    <script src="js/message-handler.js"></script>
+    <script src="js/move.js"></script>
+    <script src="js/send.js"></script>
+    <!-- minimal stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id='container'>
+        <div id='sidebar'>
+            <div id="connectionButtons">
+                <button
+                    type="button"
+                    id='connectButton'
+                >Connect</button>
+            </div><!-- #connectionButtons -->
+            <div id="loggedInButtons">
+                <button type="button" id='closeButton'>Close</button>
+                <button type="button" id='sendButton' >Send Message</button>
+                <button type="button" id='addButton' >Add</button>
+                <button type="button" id='upButton' >Move Up</button>
+                <button type="button" id='downButton' >Move Down</button>
+                <button type="button" id='combineButton' >Combine</button>
+                <button type="button" id='splitButton' >Split</button>
+                <button type="button" id='checksumButton' >Add Checksum</button>
+                <button type="button" id='verifyButton' >Verify Checksum</button>
+                <button type="button" id='encryptButton' >Encrypt</button>
+                <button type="button" id='decryptButton' >Decrypt</button>
+                <button type="button" id='randomButton' >Add Random Number</button>
+                <button type="button" id='deleteButton' >Delete</button>
+            </div><!-- #loggedInButtons -->
+        </div><!-- #sidebar -->
+        <div id='main'>
+            <div id="msgBox">
+                <span>Message to send</span>
+                <input id='msg'
+                    type="text"
+                />
+            </div><!-- #msgBox -->
+            <div id="recipientBox">
+                <span>Recipient (Empty for Broadcast)</span>
+                <input  id='recipient'
+                    type="number"
+                />
+            </div><!-- #recipientBox -->
+            <div id="systemMessages">
+                <strong>
+                    System:&nbsp;
+                </strong>
+                <div id="systemMessage">
+                </div>
+            </div><!-- #systemMessages -->
+            <div id="messageList">
+                <strong>
+                    Messages sent and received
+                </strong>
+            </div><!-- #messageList -->
+        </div><!-- #main -->
+    </div><!-- #container -->
+</body>
+</html>
