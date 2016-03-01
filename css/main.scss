@@ -1,13 +1,27 @@
-/* For mobile phones: */
+// makes sure that the padding and border are included in the total width and height
+*{
+    box-sizing: border-box;
+}
 
 
-/* For tablets */
-@media only screen and (min-width: 600px) {
-    
+/*******************************************************************************/
+/*********************** For mobile phones and tablets**************************/
+/*******************************************************************************/
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: blue;
+    }
+
+    img.logo{
+        height: 20px;
+        width: 20px;
+    }
 
 }
 
-/* For desktops */
+/*******************************************************************************/
+/*********************** For desktops ******************************************/
+/*******************************************************************************/
 @media only screen and (min-width: 768px) {
     .shell-wrap {
         width: 500px;
@@ -143,10 +157,6 @@
     div#mainDiv {
         background-color: white;
         height: 100vh;
-    }
-
-    h2 {
-        
     }
 
     img.logo{
