@@ -190,6 +190,12 @@ img.logo{
 
 }
 
+input.adjustMsgHeight{
+    word-wrap: break-word;
+    height : 50px;
+    width: 500px;
+}
+
 div.sidebar {
     margin-top: 10%;
 }

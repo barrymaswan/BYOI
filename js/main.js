@@ -44,6 +44,7 @@ $(document).ready(function(){
         if(e.which == 13) {
             var content = $(this).val();
             $("#shell-messages").append("<li class='terminal-msg'>" + content + "</li>");
+            $("#shell-messages").wrapInner( $( "<span class='red'></span>" ) );
             $(this).val("");
         }
     });
