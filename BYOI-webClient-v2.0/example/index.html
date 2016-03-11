@@ -5,38 +5,18 @@
     <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
     ></script>
-    <script>
-        var BYOI = {}; //api object
-        /*
-            API:
-                methods:
-                    addChecksum: ()
-                    addMessage: ()
-                    addRandomNumber: ()
-                    combineMessages: ()
-                    decryptMessage: (key)
-                    deleteMessages: ()
-                    encryptMessage: (key)
-                    moveMessagesDown: ()
-                    moveMessagesUp: ()
-                    sendMessage: ()
-                    splitMessages: (len)
-                    verifyChecksum: ()
-                properties:
-                    connection
-                    myName
-                    myNode
-                    mySession
-        */
-    </script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>    
+
+    
+    <!-- http://www.myersdaily.org/joseph/javascript/md5.js -->
+    <script src="../md5/md5.js"></script>
+    <!-- include BYOI jQuery plugin -->
+    <script src="../BYOI/byoi.js"></script>
+    <!-- include BYOI configuration -->
+    <script src="js/config.js"></script>
     <!-- include all the button handlers and websocket connection -->
-    <script src="js/connection.js"></script>
-    <script src="js/add.js"></script>
-    <script src="js/combination.js"></script>
-    <script src="js/encryption.js"></script>
-    <script src="js/message-handler.js"></script>
-    <script src="js/move.js"></script>
-    <script src="js/send.js"></script>
+    <script src="js/bindings.js"></script>
     <!-- minimal stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -65,16 +45,16 @@
                 <button type="button" id='deleteButton' >Delete</button>
             </div><!-- #loggedInButtons -->
         </div><!-- #sidebar -->
-        <div id='main'>
+        <div id="main">
             <div id="msgBox">
                 <span>Message to send</span>
-                <input id='msg'
+                <input id="msg"
                     type="text"
                 />
             </div><!-- #msgBox -->
             <div id="recipientBox">
                 <span>Recipient (Empty for Broadcast)</span>
-                <input  id='recipient'
+                <input  id="recipient"
                     type="number"
                 />
             </div><!-- #recipientBox -->

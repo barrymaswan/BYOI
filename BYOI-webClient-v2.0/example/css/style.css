@@ -37,21 +37,27 @@
     width:95%;
     margin:auto;
 }
-#messageList div{
+#messageList>div{
     border: solid 1px white;
 }
-#messageList div:nth-child(odd) {
+#messageList>div:nth-child(odd) {
     background-color:#ccc;
 }
 
-#messageList div:nth-child(even) {
+#messageList>div:nth-child(even) {
     background-color:#fff;
 }
 
-#messageList div:hover{
+#messageList>div:hover{
     border-color:black;
 }
 
-#messageList div.selected{
-    background:red;
+.BYOI-selected{
+    background:#88BACA !important;
 }
+
+.BYOI-last-selected{
+    background:red !important;
+}
+
+
