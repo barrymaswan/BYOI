@@ -167,6 +167,7 @@
     font: 0.8em 'Andale Mono', Consolas, 'Courier New';
     line-height: 1.6em;
     height: 70vh;
+    overflow: auto;
     -webkit-border-bottom-right-radius: 3px;
     -webkit-border-bottom-left-radius: 3px;
     -moz-border-radius-bottomright: 3px;

@@ -92,15 +92,17 @@
         <div class="col-lg-6 col-md-6 col-xs-6">
           <div class="shell-wrap">
             <p class="shell-top-bar">BYOI</p>
+            <div id="terminal">
             <ul class="shell-body" id="shell-messages">
                 <li></li>
               </ul>
+            </div>
           </div>
           <br>
 
-          <div class="input-group text-center">
+          <div class="text-center">
             <span class="input-group-addon" id="sizing-addon2">Message:</span>
-            <input type="text" class="form-control" placeholder="Type message here" aria-describedby="sizing-addon2" id="textbox-msg">
+            <textarea class="form-control adjustMsgHeight" placeholder="Type message here" id="textbox-msg"></textarea>
           </div>
         </div>
 
@@ -148,6 +150,7 @@
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
+        <script src="js/vendor/notify.js"></script>
 
     </body>
 </html>
