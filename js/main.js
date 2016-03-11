@@ -89,14 +89,14 @@ $(document).ready(function(){
     // will be happening in the backend
     $("#encrypt-btn").on('click', function() {
         if (msgSelected == false) {
-            $("#encrypt-btn").notify("Please Select A Message First", { position:"left" });
+            $("#encrypt-btn").notify("Please Select A Message First", { position:"left", autoHideDelay: 2000 });
         } else {
             var msgs = document.getElementById("shell-messages");
             var listItem = msgs.getElementsByTagName("li");
             var listLength = listItem.length;
             for (i = 1; i < listLength; i++) {
                 if ($(listItem[i]).hasClass('encrypted')) {
-                    $("#encrypt-btn").notify("This Message Is Already Encrypted.", { position:"left" })
+                    $("#encrypt-btn").notify("This Message Is Already Encrypted.", { position:"left", autoHideDelay: 2000 })
                     return;;
                 }
                 if($(listItem[i]).hasClass('selected-msg')) {

@@ -73,20 +73,21 @@
 
         <div class="text-center">
           <h2 class="header-content">Build Your Own Internet</h2>
+          <h4 class="task">Current task:  <span id="currentTask">Learn TCP</span></h4>
         </div>
 
 
-        <div id="sendingButtons" class="col-lg-3 col-md-3 col-xs-3 sidebar text-center">
+        <div id="receivingButtons" class="col-lg-3 col-md-3 col-xs-3 text-center sidebar">
           <div class="btn-group-vertical text-center" role="group">
-            <span class="sidebar-link" id="encrypt-btn">Encrypt</span>
+            <span class="sidebar-link" id="decrypt-btn">Decrypt</span>
             <hr>
-            <span class="sidebar-link" id="add-checksum-btn">Add Checksum</span>
+            <span class="sidebar-link" id="verify-checksum-btn">Verify Checksum</span>
             <hr>
-            <span class="sidebar-link" id="split-btn">Split</span>
-            <hr>            
-            <span class="sidebar-link" id="send-btn">Send</span>
+            <span class="sidebar-link" id="combine-btn">Combine</span>
+            <hr>
+            <span class="sidebar-link" id="delete-msg-btn">Delete Message</span>            
           </div>
-        </div>
+        </div>     
 
 
         <div class="col-lg-6 col-md-6 col-xs-6">
@@ -103,21 +104,25 @@
           <div class="text-center">
             <span class="input-group-addon" id="sizing-addon2">Message:</span>
             <textarea class="form-control adjustMsgHeight" placeholder="Type message here" id="textbox-msg"></textarea>
+            
           </div>
         </div>
 
-        <div id="receivingButtons" class="col-lg-3 col-md-3 col-xs-3 text-center sidebar">
+        <div id="sendingButtons" class="col-lg-3 col-md-3 col-xs-3 sidebar text-center">
           <div class="btn-group-vertical text-center" role="group">
-            <span class="sidebar-link" id="decrypt-btn">Decrypt</span>
+            <span class="sidebar-link" id="encrypt-btn">Encrypt</span>
             <hr>
-            <span class="sidebar-link" id="verify-checksum-btn">Verify Checksum</span>
+            <span class="sidebar-link" id="add-checksum-btn">Add Checksum</span>
             <hr>
-            <span class="sidebar-link" id="combine-btn">Combine</span>
-            <hr>
-            <span class="sidebar-link" id="delete-msg-btn">Delete Message</span>            
+            <span class="sidebar-link" id="split-btn">Split</span>
+            <hr>            
+            <span class="sidebar-link" id="add-random-btn">Add Random Number</span>
+            
           </div>
         </div>
 
+        <span class="sidebar-link" id="send-btn">Send</span>
+        
       </div>
 
         <!-- Modal for displaying success/failure messages -->
