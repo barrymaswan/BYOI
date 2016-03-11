@@ -22,6 +22,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+      <!-- header only shows up in mobile views. Ignore header if working on desktop -->
       <header>
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -62,44 +63,39 @@
             </div>
           </div>
         </nav>
-
       </header>
 
     <div class="container" id="mainDiv">
-
+      <div class="row">
         <div class="text-center">
           <img src="img/logo.png" class="logo">
         </div>
-        <div class="container text-center">
+
+        <div class="text-center">
           <h2 class="header-content">Build Your Own Internet</h2>
         </div>
 
 
-        <div id="sendingButtons" class="col-lg-3 col-md-3 sidebar text-center">
+        <div id="sendingButtons" class="col-lg-3 col-md-3 col-xs-3 sidebar text-center">
           <div class="btn-group-vertical text-center" role="group">
-            <!-- <button type="button" class="myButton" id="encrypt-btn">Encrypt</button> -->
             <span class="sidebar-link" id="encrypt-btn">Encrypt</span>
             <hr>
-            <!-- <button type="button" class="myButton" id="add-checksum-btn">Add Checksum</button> -->
             <span class="sidebar-link" id="add-checksum-btn">Add Checksum</span>
             <hr>
-            <!-- <button type="button" class="myButton" id="split-btn">Split</button> -->
             <span class="sidebar-link" id="split-btn">Split</span>
             <hr>            
-            <!-- <button type="button" class="myButton" id="send-btn">Send</button> -->
             <span class="sidebar-link" id="send-btn">Send</span>
           </div>
         </div>
 
 
-        <div id="messagesBox" class="col-lg-6 col-md-6">
+        <div class="col-lg-6 col-md-6 col-xs-6">
           <div class="shell-wrap">
             <p class="shell-top-bar">BYOI</p>
             <ul class="shell-body" id="shell-messages">
                 <li></li>
               </ul>
           </div>
-
           <br>
 
           <div class="input-group text-center">
@@ -108,25 +104,19 @@
           </div>
         </div>
 
-        <div id="receivingButtons" class="col-lg-3 col-md-3 text-center sidebar">
+        <div id="receivingButtons" class="col-lg-3 col-md-3 col-xs-3 text-center sidebar">
           <div class="btn-group-vertical text-center" role="group">
-             <!-- <button type="button" class="myButton" id="decrypt-btn">Decrypt</button> -->
             <span class="sidebar-link" id="decrypt-btn">Decrypt</span>
             <hr>
-            <!-- <button type="button" class="myButton" id="verify-checksum-btn">Verify Checksum</button> -->
             <span class="sidebar-link" id="verify-checksum-btn">Verify Checksum</span>
             <hr>
-            <!-- <button type="button" class="myButton" id="combine-btn">Combine</button> -->
             <span class="sidebar-link" id="combine-btn">Combine</span>
             <hr>
-            <!-- <button type="button" class="myButton" id="receive-msg-btn">Delete Message</button> -->
             <span class="sidebar-link" id="delete-msg-btn">Delete Message</span>            
           </div>
-
-          <!-- this won't exist in the actual application. It's just here for demo purposes -->
-          <br><br><br><br><br><br><br><br><br><br><br><br>
-            <span class="sidebar-link" id="receive-msg-btn">Receive Message</span>
         </div>
+
+      </div>
 
         <!-- Modal for displaying success/failure messages -->
       <div id="msgModal" class="modal fade" role="dialog">
@@ -145,14 +135,10 @@
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
-
         </div>
+      </div>
 
-      </div> 
-
-
-
-
+    </div>
 
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
