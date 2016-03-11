@@ -81,17 +81,18 @@ $(document).ready(function(){
     // will be happening in the backend
     $("#encrypt-btn").on('click', function() {
         if (msgSelected == false) {
-            alert("Select a message first");
+            $("#encrypt-btn").notify("Please Select A Message First", { position:"left" });
         } else {
             var msgs = document.getElementById("shell-messages");
             var listItem = msgs.getElementsByTagName("li");
             var listLength = listItem.length;
             for (i = 1; i < listLength; i++) {
                 if ($(listItem[i]).hasClass('encrypted')) {
-                    alert("The message is already encrypted");
-                    return;
+                    $("#encrypt-btn").notify("This Message Is Already Encrypted.", { position:"left" })
+                    return;;
                 }
                 if($(listItem[i]).hasClass('selected-msg')) {
+                    //$("#encrypt-btn").notify("Messaged Encrypted!", "success");
                     var coded = encrypt(listItem[i].innerHTML);
                     $(listItem[i]).addClass('encrypted');
                     $(listItem[i]).removeClass('decrypted');
@@ -120,7 +121,19 @@ $(document).ready(function(){
     });
 
     $("#send-btn").on('click', function() {
-        $("#msgModal").modal();
+        var length1 = $("#textbox-msg").val().length;
+        //It always returns 1 greater than the length so I reduce its size by 1.
+        length1=length1-1; 
+        if(length1>40){
+           $("#textbox-msg").notify("Message too long, please split the message.");
+        }
+        else{
+           $("#textbox-msg").notify("Message Sent!");
+           $(".selected-msg").addClass('sent-terminal-msg');
+        }
+
+       // $("#textbox-msg").notify(length1, { position:"left" });
+        //$("#msgModal").modal();
         $(".selected-msg").addClass('sent-terminal-msg');
 
     });
@@ -130,7 +143,8 @@ $(document).ready(function(){
 
     // encrypting messages for purposes of the demo
     $("#receive-msg-btn").on('click', function() {
-        alert("message has been successfully received");
+
+        //alert("message has been successfully received");
         var content = 'hello from the other side';
         var coded = encrypt(content);
         $("#shell-messages").append("<li class='terminal-msg received-terminal-msg encrypted'>"+coded+"</li>");
@@ -148,9 +162,9 @@ $(document).ready(function(){
 
     $("#verify-checksum-btn").on('click', function() {
         if (msgSelected == false) {
-            alert("Select a message first");
+            $("#verify-checksum-btn").notify("Please Select A Message First.", { position:"right" });
         } else {
-            alert("checksum valid");
+            
         }
     });
 
@@ -158,7 +172,7 @@ $(document).ready(function(){
 
     $("#decrypt-btn").on('click', function() {
         if (msgSelected == false) {
-            alert("Select a message first");
+            $("#decrypt-btn").notify("Please Select A Message First.", { position:"right" });
         } else {
             var msgs = document.getElementById("shell-messages");
             var listItem = msgs.getElementsByTagName("li");
