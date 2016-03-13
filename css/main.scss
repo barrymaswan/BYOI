@@ -10,7 +10,12 @@
 @media only screen and (max-width: 768px) {
     h2.header-content {
         font-family: Calibri;
+        font-size: 14px;
         margin-top: 1px;
+    }
+
+    h4.task {
+        font-size: 14px;
     }
 
     img.logo{
@@ -28,14 +33,9 @@
     }
 
     .push-to-middle {
-            margin-left: 30vw;
             font-family: Calibri;
-            text-align: center;  
-    }
-    
-    div.input-group {
-        margin: 0 auto 0 6%;
-    }
+            text-align: center;
+    }    
 
     .shell-wrap {
         margin: 0 auto 0 6%;
@@ -106,6 +106,30 @@
     }
 
 
+ /* class for messages added to the messages screen */
+    .selected-msg{
+        background-color: white;
+        color: black;
+    }
+
+    
+    .terminal-msg{
+        color: red;
+    }
+
+    .sent-terminal-msg {
+        color: #45D40C;
+    }
+
+    .received-terminal-msg {
+        color: #00bfff;
+    }
+
+    .terminal-msg:hover {
+        background-color: gray;
+    }
+
+
     /********************************/
 
     li.side-bar {
@@ -126,13 +150,14 @@
         color: white;
     }
 
+
 }
 
 
 /*******************************************************************************/
 /*********************** For desktops ******************************************/
 /*******************************************************************************/
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     header {
         display: none;
     }
@@ -186,7 +211,7 @@
         color: #45D40C;
         font: 0.8em 'Andale Mono', Consolas, 'Courier New';
         line-height: 1.6em;
-        height: 70vh;
+        height: 60vh;
         overflow: auto;
 
 
@@ -232,12 +257,13 @@
         text-transform: uppercase;
     }
 
+    /* class for messages added to the messages screen */
     .selected-msg{
         background-color: white;
         color: black;
     }
 
-    /* class for messages added to the messages screen */
+    
     .terminal-msg{
         color: red;
     }
@@ -271,10 +297,6 @@
         background-color: #f2f2f2;
     }
 
-    div#mainDiv {
-        background-color: white;
-        height: 100%;
-    }
 
     img.logo{
         height: 80px;
@@ -302,8 +324,11 @@
     }
 
     #send-btn {
-        position: relative;
-        top: 280%;
-        left: 40%;
+        position: absolute;
+        top: 55vh !important;
+    }
+
+    div#mainDiv {
+        height: 100vh;
     }
 }

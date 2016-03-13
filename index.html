@@ -23,6 +23,7 @@
         <![endif]-->
 
       <!-- header only shows up in mobile views. Ignore header if working on desktop -->
+      <div class="container" id="mainDiv">
       <header>
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -45,27 +46,30 @@
                 <span class="icon-bar"></span>
               </button>
             </div>
+
             <div class="collapse navbar-collapse" id="leftNavbar">
-              <ul class="nav navbar-nav pull-left">
-                <li class="side-bar">Encrypt</li>
-                <li class="side-bar">Add Checksum</li>
-                <li class="side-bar">Split</li>
-                <li class="side-bar">Send Message</li>
+              <ul class="nav navbar-nav pull-left sidebar">
+                <li class="side-bar decrypt-btn">Decrypt</li>
+                <li class="side-bar verify-checksum-btn">Verify Checksum</li>
+                <li class="side-bar combine-btn">Combine</li>
+                <li class="side-bar delete-msg-btn">Delete Message</li>
               </ul>
             </div>
+
             <div class="collapse navbar-collapse" id="rightNavbar">
               <ul class="nav navbar-nav pull-right sidebar">
-                <li class="side-bar">Decrypt</li>
-                <li class="side-bar">Verify Checksum</li>
-                <li class="side-bar">Combine</li>
-                <li class="side-bar">Delete Message</li>
+                <li class="side-bar encrypt-btn">Encrypt</li>
+                <li class="side-bar add-checksum-btn">Add Checksum</li>
+                <li class="side-bar split-btn">Split</li>
+                <li class="side-bar send-btn">Send Message</li>
               </ul>
-            </div>
+            </div>        
+
           </div>
         </nav>
       </header>
 
-    <div class="container" id="mainDiv">
+    
       <div class="row">
         <div class="text-center">
           <img src="img/logo.png" class="logo">
@@ -77,20 +81,20 @@
         </div>
 
 
-        <div id="receivingButtons" class="col-lg-3 col-md-3 col-xs-3 text-center sidebar">
+        <div id="receivingButtons" class="col-lg-3 col-md-1 col-xs-1 col-sm-1 text-center sidebar">
           <div class="btn-group-vertical text-center" role="group">
-            <span class="sidebar-link" id="decrypt-btn">Decrypt</span>
+            <span class="sidebar-link decrypt-btn">Decrypt</span>
             <hr>
-            <span class="sidebar-link" id="verify-checksum-btn">Verify Checksum</span>
+            <span class="sidebar-link verify-checksum-btn">Verify Checksum</span>
             <hr>
-            <span class="sidebar-link" id="combine-btn">Combine</span>
+            <span class="sidebar-link combine-btn">Combine</span>
             <hr>
-            <span class="sidebar-link" id="delete-msg-btn">Delete Message</span>            
+            <span class="sidebar-link delete-msg-btn">Delete Message</span>            
           </div>
         </div>     
 
 
-        <div class="col-lg-6 col-md-6 col-xs-6">
+        <div class="col-lg-6 col-md-10 col-sm-10 col-xs-10">
           <div class="shell-wrap">
             <p class="shell-top-bar">BYOI</p>
             <div id="terminal">
@@ -101,27 +105,27 @@
           </div>
           <br>
 
-          <div class="text-center">
+          <div class="text-center message-box">
             <span class="input-group-addon" id="sizing-addon2">Message:</span>
-            <textarea class="form-control adjustMsgHeight" placeholder="Type message here" id="textbox-msg"></textarea>
-            
+            <textarea class="form-control adjustMsgHeight" placeholder="Type message here" id="textbox-msg"></textarea>            
           </div>
         </div>
 
-        <div id="sendingButtons" class="col-lg-3 col-md-3 col-xs-3 sidebar text-center">
+        <div id="sendingButtons" class="col-lg-3 col-md-1 col-sm-1 col-xs-1 sidebar text-center">
           <div class="btn-group-vertical text-center" role="group">
-            <span class="sidebar-link" id="encrypt-btn">Encrypt</span>
+            <span class="sidebar-link encrypt-btn">Encrypt</span>
             <hr>
-            <span class="sidebar-link" id="add-checksum-btn">Add Checksum</span>
+            <span class="sidebar-link add-checksum-btn">Add Checksum</span>
             <hr>
-            <span class="sidebar-link" id="split-btn">Split</span>
+            <span class="sidebar-link split-btn">Split</span>
             <hr>            
-            <span class="sidebar-link" id="add-random-btn">Add Random Number</span>
-            
+            <span class="sidebar-link add-random-btn">Add Random Number</span>
+            <hr>
+            <span class="sidebar-link send-btn">Send</span>
           </div>
         </div>
 
-        <span class="sidebar-link" id="send-btn">Send</span>
+        
         
       </div>
 
