@@ -274,6 +274,9 @@
     top: 55vh !important; }
 
   div#mainDiv {
-    height: 100vh; } }
+    height: 100vh; }
+
+  div.msg-box {
+    display: inline; } }
 
 /*# sourceMappingURL=main.css.map */

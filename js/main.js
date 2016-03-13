@@ -2,40 +2,8 @@ var msgSelected = false;
 
 // en(de)crpyt function got from: http://www.mvjantzen.com/blog/?p=1005
 
-function encrypt(content)
-{
-    var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
-            content = content.toUpperCase().replace(/^\s+|\s+$/g,"");
-            var coded = "";
-            var chr;
-              for (var i = content.length - 1; i >= 0; i--) {
-                chr = content.charCodeAt(i);
-                coded += (chr >= 65 && chr <= 90) ? 
-                  key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
-                  String.fromCharCode(chr); 
-            }
-
-            return coded;
-}
-
-function decrypt(coded)
-{
-    var key = "SXGWLZPDOKFIVUHJYTQBNMACERxswgzldpkoifuvjhtybqmncare";
-          
-          coded = decodeURIComponent(coded);  
-          var uncoded = "";
-          var chr;
-          for (var i = coded.length - 1; i >= 0; i--) {
-            chr = coded.charAt(i);
-            uncoded += (chr >= "a" && chr <= "z" || chr >= "A" && chr <= "Z") ?
-              String.fromCharCode(65 + key.indexOf(chr) % 26) :
-              chr; 
-            }
-        uncoded = uncoded.toLowerCase();
-        return uncoded;
-}
-
 $(document).ready(function(){
+    // BYOI.connect(); // connect to the server
     $("#shell-messages").sortable({
     appendTo: 'body',
     tolerance: 'pointer',
@@ -48,11 +16,11 @@ $(document).ready(function(){
      sortlists.scrollTop($(this).scrollTop());
 });
     $("#shell-messages").disableSelection();
-    $("#textbox-msg").on('keydown', function(e){
+    $("#msg").on('keydown', function(e){
         if (e.which == 13) {
-            var content = $(this).val();
-            $("#shell-messages").append("<li class='terminal-msg' draggable='true'>" + content + "</li>");
-            //$("#shell-messages").wrapInner( $( "<span class='red'></span>" ) );
+            // var content = $(this).val();
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+            var msg = $('<div class="added"><span class="text">' + $('#msg').val() + '</span>&nbsp;</div>').BYOIMessage();
             $(this).val("");
         }
     });
@@ -88,28 +56,14 @@ $(document).ready(function(){
     // encryption in this fn is a place holder for the actual encryption that
     // will be happening in the backend
     $(".encrypt-btn").on('click', function() {
-        if (msgSelected == false) {
-            $("#encrypt-btn").notify("Please Select A Message First", { position:"left", autoHideDelay: 2000 });
-        } else {
-            var msgs = document.getElementById("shell-messages");
-            var listItem = msgs.getElementsByTagName("li");
-            var listLength = listItem.length;
-            for (i = 1; i < listLength; i++) {
-                if ($(listItem[i]).hasClass('encrypted')) {
-                    $("#encrypt-btn").notify("This Message Is Already Encrypted.", { position:"left", autoHideDelay: 2000 })
-                    return;;
-                }
-                if($(listItem[i]).hasClass('selected-msg')) {
-                    //$("#encrypt-btn").notify("Messaged Encrypted!", "success");
-                    var coded = encrypt(listItem[i].innerHTML);
-                    $(listItem[i]).addClass('encrypted');
-                    $(listItem[i]).removeClass('decrypted');
-                    listItem[i].innerHTML = coded;
-                }
-            }
-        }
-
-    });
+              // encrypt the last select
+            var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().encryptMessage(
+                parseInt(+$('#recipient').val()) // encryption key is the recipient node
+            ).relayMessage(); // send to every message handler
+            // add the message to the input (update field value)
+            BYOI.addMessageToContainer(msg, $('#msg'));
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+            });
 
     // for purposes of the demo, splitting string is into two
     $(".split-btn").on('click', function() {

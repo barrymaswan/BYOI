@@ -639,7 +639,8 @@ function chunker(text, len){
                 result = md5(this.data('text-no-hash')) == this.data('hash');
                 // let the user know about the validation
                 var message = result? 'Correct!':'Incorrect!';
-                BYOI.systemMessage('CHECKSUM:' + message);
+                //BYOI.systemMessage('CHECKSUM:' + message);
+                $('.selected-msg').notify('checksum '+message, "success");
             } else {
                 BYOI.systemMessage('ERROR: the message does not contain a checksum');
             }

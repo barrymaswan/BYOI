@@ -61,7 +61,7 @@
                 <li class="side-bar encrypt-btn">Encrypt</li>
                 <li class="side-bar add-checksum-btn">Add Checksum</li>
                 <li class="side-bar split-btn">Split</li>
-                <li class="side-bar send-btn">Send Message</li>
+                <li class="side-bar send-btn">Send</li>
               </ul>
             </div>        
 
@@ -98,16 +98,20 @@
           <div class="shell-wrap">
             <p class="shell-top-bar">BYOI</p>
             <div id="terminal">
-            <ul class="shell-body" id="shell-messages">
-                <li></li>
-              </ul>
+            <div class="shell-body" id="messageList">
+                <div></div>
+            </div>
             </div>
           </div>
           <br>
 
-          <div class="text-center message-box">
-            <span class="input-group-addon" id="sizing-addon2">Message:</span>
-            <textarea class="form-control adjustMsgHeight" placeholder="Type message here" id="textbox-msg"></textarea>            
+          <div class="text-center msg-box">
+            <textarea class="form-control" placeholder="Type message here" id="msg"></textarea>
+            <div id="recipientBox">
+                <span>Recipient (Empty for Broadcast)</span>
+                <input  id="recipient" type="number" />
+            </div><!-- #recipientBox -->
+            <span class="sidebar-link send-btn">Send</span>
           </div>
         </div>
 
@@ -121,7 +125,7 @@
             <hr>            
             <span class="sidebar-link add-random-btn">Add Random Number</span>
             <hr>
-            <span class="sidebar-link send-btn">Send</span>
+            
           </div>
         </div>
 
@@ -158,11 +162,13 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
+        <!-- <script src="js/main.js"></script> -->
+        
         <script src="js/vendor/notify.js"></script>
         <script src="BYOI-webClient-v2.0/md5/md5.js"></script>
         <script src="BYOI-webClient-v2.0/config.js"></script>
         <script src="BYOI-webClient-v2.0/BYOI/byoi.js"></script>
+        <script src="js/bindings.js"></script>
 
     </body>
 </html>
