@@ -137,7 +137,6 @@
     position: fixed; }
 
   .shell-wrap {
-    margin: 0 auto 0 6%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -243,9 +242,6 @@
   input {
     font-family: Courier New; }
 
-  div.input-group {
-    margin: 0 auto 0 6%; }
-
   body {
     background-color: #f2f2f2; }
 
@@ -277,6 +273,9 @@
     height: 100vh; }
 
   div.msg-box {
-    display: inline; } }
+    display: inline; }
+
+  .recipientBox {
+    width: 10px; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,8 +1,6 @@
 $(document).ready(function() {
-    BYOI.connect();
-    $(document).delay(2000);
+    // BYOI.connect();
     var id = $('#messageList').first().val();
-    //alert('test: '+$('#messageList').first().val());
 
     $('.shell-top-bar').val(id);
 

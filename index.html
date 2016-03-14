@@ -61,7 +61,6 @@
                 <li class="side-bar encrypt-btn">Encrypt</li>
                 <li class="side-bar add-checksum-btn">Add Checksum</li>
                 <li class="side-bar split-btn">Split</li>
-                <li class="side-bar send-btn">Send</li>
               </ul>
             </div>        
 
@@ -105,15 +104,20 @@
           </div>
           <br>
 
-          <div class="text-center msg-box">
-            <textarea class="form-control" placeholder="Type message here" id="msg"></textarea>
-            <div id="recipientBox">
-                <span>Recipient (Empty for Broadcast)</span>
-                <input  id="recipient" type="number" />
-            </div><!-- #recipientBox -->
-            <span class="sidebar-link send-btn">Send</span>
+          <div class="msg-box container">
+            <div class="row">
+              <div class="col-lg-9">
+                <textarea class="form-control" placeholder="Type message here" id="msg"></textarea>
+              </div>
+              <div class="col-lg-3">
+                <div id="recipientBox" class="recipientBox">
+                    <input  id="recipient" type="number" placeholder="Recipient (Empty for Broadcast)"/>
+                </div>
+              <span class="sidebar-link send-btn">Send</span>
+              </div>
           </div>
         </div>
+      </div>
 
         <div id="sendingButtons" class="col-lg-3 col-md-1 col-sm-1 col-xs-1 sidebar text-center">
           <div class="btn-group-vertical text-center" role="group">
