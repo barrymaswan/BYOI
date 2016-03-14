@@ -37,8 +37,7 @@
             text-align: center;
     }    
 
-    .shell-wrap {
-        margin: 0 auto 0 6%;
+.shell-wrap {
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 
         -webkit-border-radius: 3px;
@@ -82,7 +81,9 @@
         color: #45D40C;
         font: 0.8em 'Andale Mono', Consolas, 'Courier New';
         line-height: 1.6em;
-        height: 70vh;
+        height: 60vh;
+        overflow: auto;
+
 
         -webkit-border-bottom-right-radius: 3px;
         -webkit-border-bottom-left-radius: 3px;
@@ -162,12 +163,7 @@
         display: none;
     }
 
-    .fixed {
-        position: fixed;
-    }
-
     .shell-wrap {
-        // margin: 0 auto 0 6%;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 
         -webkit-border-radius: 3px;

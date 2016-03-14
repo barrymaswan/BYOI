@@ -25,6 +25,17 @@ $(document).ready(function() {
         }
     });
 
+    // check for exceeded char length
+    $("#msg").on('keydown', function(e) {
+        var length1 = $("#msg").val().length;
+            //It always returns 1 greater than the length so I reduce its size by 1.
+            length1=length1-1; 
+            if(length1>40){
+               $("#msg").notify("Message over 40 chars!");
+        }
+    });
+
+
     //bind elements of the DOM to BYOI methods    
     $('#connectButton').click(function(){
         // attempt connection to the server
@@ -131,7 +142,7 @@ $(document).ready(function() {
         // tag with the "text" class.
         var html = '<div><span class="text">'+$('#msg').val()+'</span></div>';
         // sent message to the server
-        $(html).BYOIMessage().send($('#recipient').val()).css('background', 'gold');
+        $(html).BYOIMessage().send($('#recipient').val());
         $('#messageList').getSelectedMessages().toggleSelectMessage();
     });
 

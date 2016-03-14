@@ -1,7 +1,6 @@
 'use strict';
 var BYOI = {};
 var aux;
-var theName;
 
 function setCookie(cname, cvalue) {
     var d = new Date();
@@ -168,8 +167,6 @@ function chunker(text, len){
             }
             if (type == 'TASK') {
                 console.log(received);
-                var task = received.task;
-                console.log("The task: "+task);
                 html = '<div class="task">Task: <span class="text"> ' +task+ '</span></div>';
                 metaData = {
                     'text':task
@@ -502,7 +499,8 @@ function chunker(text, len){
                     // call hook
                     BYOI.onSend(msg);
                 } else {
-                    BYOI.systemMessage('ERROR: message too long to send.'); 
+                    // BYOI.systemMessage('ERROR: message too long to send.');
+                    $(".selected-msg").notify("ERROR: message too long to send.");
                 }
             });
             //return the relayed messages to allow for jQuery chaining
