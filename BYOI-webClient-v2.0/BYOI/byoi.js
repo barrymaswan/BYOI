@@ -173,9 +173,9 @@ function chunker(text, len){
                 };
             }
             // create a new message from the received data
-            var msg = $(html).BYOIMessage(metaData)
-                .relayMessage(); // relay the message to all message handlers
-            document.getElementById('title-bar').innerHTML = BYOI.myName;
+            // var msg = $(html).BYOIMessage(metaData)
+            //     .relayMessage(); // relay the message to all message handlers
+            document.getElementById('title-bar').innerHTML = BYOI.myName + '| Node: ' + BYOI.myNode;
             // call the hook
             BYOI.onMessageReceived(type, msg);
         };
