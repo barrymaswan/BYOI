@@ -276,6 +276,9 @@
     display: inline; }
 
   .recipientBox {
-    width: 10px; } }
+    width: 10px; }
+
+  textarea {
+    resize: none; } }
 
 /*# sourceMappingURL=main.css.map */
