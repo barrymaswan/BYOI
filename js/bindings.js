@@ -17,7 +17,9 @@ $(document).ready(function() {
                 function(){$(this).removeAttr('style');
             });
 
-            $(this).val('');
+            e.preventDefault();
+            $("#msg").val('');
+            $("#msg").html('');
         }
     });
 
