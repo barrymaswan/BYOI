@@ -1,5 +1,10 @@
 $(document).ready(function() {
-    BYOI.connect();
+   BYOI.connect();
+   $(".shell-top-bar").val(BYOI.myName);
+
+    function populateBar() {
+        alert("populate bar is called");
+    }
 
     $("#msg").on('keydown', function(e){
         if (e.which == 13) {

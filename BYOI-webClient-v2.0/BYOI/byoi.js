@@ -175,6 +175,7 @@ function chunker(text, len){
             // create a new message from the received data
             var msg = $(html).BYOIMessage(metaData)
                 .relayMessage(); // relay the message to all message handlers
+            document.getElementById('title-bar').innerHTML = BYOI.myName;
             // call the hook
             BYOI.onMessageReceived(type, msg);
         };
@@ -217,6 +218,7 @@ function chunker(text, len){
 
             BYOI.onConnectionClose(event.code, reason);
         };
+
     };//BYOI.connect
 
 

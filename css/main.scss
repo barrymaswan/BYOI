@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+
 /*************change the navbar breakpoint**********/
 @media (max-width: 991px) {
     .navbar-header {
@@ -381,6 +382,14 @@
 
     div.msg-box {
         display: inline;
+    }
+
+    .msg {
+        /* all */
+    ::-webkit-input-placeholder { color:#f00; font-size: 20px; }
+    ::-moz-placeholder { color:#f00; } /* firefox 19+ */
+    :-ms-input-placeholder { color:#f00; } /* ie */
+    input:-moz-placeholder { color:#f00; }
     }
 
     textarea {
