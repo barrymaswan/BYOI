@@ -1,6 +1,7 @@
 'use strict';
 var BYOI = {};
 var aux;
+var theName;
 
 function setCookie(cname, cvalue) {
     var d = new Date();
@@ -141,6 +142,7 @@ function chunker(text, len){
                     setCookie("session", BYOI.mySession);
                     setCookie("node", BYOI.myNode);
                     setCookie("name", BYOI.myName);
+
                     BYOI.systemMessage("new game join");
                 }
                 html = '<div class="received"><span class="connected">Node Number:  '+BYOI.myNode+'</span> | Node name: <span class="text">'+BYOI.myName+'</span></div>';
@@ -149,6 +151,7 @@ function chunker(text, len){
                     'text': BYOI.myName,
                     'session': BYOI.mySession
                 };
+
             }
 
             if (type == 'PACKET') {
@@ -166,6 +169,7 @@ function chunker(text, len){
             if (type == 'TASK') {
                 console.log(received);
                 var task = received.task;
+                console.log("The task: "+task);
                 html = '<div class="task">Task: <span class="text"> ' +task+ '</span></div>';
                 metaData = {
                     'text':task
@@ -217,6 +221,7 @@ function chunker(text, len){
             BYOI.onConnectionClose(event.code, reason);
         };
     };//BYOI.connect
+
 
     // relay the message to all system messages elements, 
     // if none exist, alert
