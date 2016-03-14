@@ -88,8 +88,7 @@ $(document).ready(function(){
         length1=length1-1; 
         if(length1>40){
            $("#textbox-msg").notify("Message too long, please split the message.");
-        }
-        else{
+        } else {
            $("#textbox-msg").notify("Message Sent!");
            $(".selected-msg").addClass('sent-terminal-msg');
         }

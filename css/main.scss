@@ -67,6 +67,22 @@
         display: none;
     }
 
+    .sidebar-link{
+        color: #000000;
+        font-family: Raleway, Helvetica, sans-serif;
+        font-weight: 550;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 10px;
+
+    }
+
+    .sidebar-link:hover{
+        cursor: pointer; cursor: hand;
+        font-weight: 600;
+
+    }
+
     .nav.navbar-nav.pull-left {
         float: left !important;
     }
@@ -76,7 +92,7 @@
             text-align: center;
     }    
 
-.shell-wrap {
+    .shell-wrap {
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 
         -webkit-border-radius: 3px;

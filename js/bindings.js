@@ -1,10 +1,5 @@
 $(document).ready(function() {
     BYOI.connect();
-    // console.log(BYOI.myName);
-    // console.log(decodeURI(getCookie("node")));
-    // var id = $('#messageList').first().val();
-    // alert(id);
-    // $('.shell-top-bar').val(id);
 
     $("#msg").on('keydown', function(e){
         if (e.which == 13) {
@@ -142,7 +137,10 @@ $(document).ready(function() {
         // tag with the "text" class.
         var html = '<div><span class="text">'+$('#msg').val()+'</span></div>';
         // sent message to the server
-        $(html).BYOIMessage().send($('#recipient').val());
+        var nodeToSendTo = $('#recipient').val()
+        if (!nodeToSendTo)
+            nodeToSendTo = 0;
+        $(html).BYOIMessage().send(nodeToSendTo);
         $('#messageList').getSelectedMessages().toggleSelectMessage();
     });
 
