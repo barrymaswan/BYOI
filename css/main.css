@@ -322,18 +322,7 @@
     display: inline; }
 
   .msg {
-    /* all */
-    /* firefox 19+ */
-    /* ie */ }
-    .msg ::-webkit-input-placeholder {
-      color: #f00;
-      font-size: 20px; }
-    .msg ::-moz-placeholder {
-      color: #f00; }
-    .msg :-ms-input-placeholder {
-      color: #f00; }
-    .msg input:-moz-placeholder {
-      color: #f00; }
+    font-family: Consolas; }
 
   textarea {
     resize: none; }
