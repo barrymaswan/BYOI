@@ -1,0 +1,169 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BYOI</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" href="img/logo.png" sizes="16*16">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+      <!-- header only shows up in mobile views. Ignore header if working on desktop -->
+      <div class="container" id="mainDiv">
+      <header>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#leftNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#rightNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="leftNavbar">
+              <ul class="nav navbar-nav pull-left sidebar">
+                <li class="side-bar sidebar-link decrypt-btn">Decrypt</li>
+                <li class="side-bar sidebar-link verify-checksum-btn">Verify Checksum</li>
+                <li class="side-bar sidebar-link combine-btn">Combine</li>
+                <li class="side-bar sidebar-link delete-msg-btn">Delete Message</li>
+              </ul>
+            </div>
+
+            <div class="collapse navbar-collapse" id="rightNavbar">
+              <ul class="nav navbar-nav pull-right sidebar">
+                <li class="side-bar sidebar-link encrypt-btn">Encrypt</li>
+                <li class="side-bar sidebar-link add-checksum-btn">Add Checksum</li>
+                <li class="side-bar sidebar-link split-btn">Split</li>
+                <li class="side-bar sidebar-link add-random-btn">Add Random Number</li>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+      </header>
+
+    
+      <div class="row">
+        <div class="text-center" style="padding-bottom: 0px; margin-bottom: 0px;">
+          <img src="img/logo.png" class="logo">
+        </div>
+
+        <div class="text-center">
+          <h2 class="header-content">Build Your Own Internet</h2>
+          <h4 class="task">Current task:  <span id="currentTask"></span></h4>
+        </div>
+
+
+        <div id="receivingButtons" class="col-lg-3 col-md-1 col-xs-1 col-sm-1 text-center sidebar"
+          style="margin-top: 5%;">
+          <div class="btn-group-vertical text-center" role="group">
+            <span class="sidebar-link decrypt-btn">Decrypt</span>
+            <hr>
+            <span class="sidebar-link verify-checksum-btn">Verify Checksum</span>
+            <hr>
+            <span class="sidebar-link combine-btn">Combine</span>
+            <hr>
+            <span class="sidebar-link delete-msg-btn">Delete Message</span>
+            <hr>
+            <span class="sidebar-link encrypt-btn">Encrypt</span>
+            <hr>
+            <span class="sidebar-link add-checksum-btn">Add Checksum</span>
+            <hr>
+            <span class="sidebar-link split-btn">Split</span>
+            <hr>            
+            <span class="sidebar-link add-random-btn">Add Random Number</span>
+            <hr>
+            <span class="sidebar-link send-btn">Send</span>                
+          </div>
+        </div>     
+
+
+        <div class="col-lg-9 col-lg-offset-0 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+          <div class="shell-wrap">
+            <p class="shell-top-bar" id="title-bar">BYOI</p>
+            <div id="terminal">
+            <div class="shell-body" id="messageList">
+                <div></div>
+            </div>
+            </div>
+          </div>
+
+          <div class="msg-box container">
+            <div class="row">
+              <div class="col-lg-9">
+                <div class="form-group">
+                <textarea class="form-control msg" placeholder="Type message here" id="msg" rows="3" required></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div id="recipientBox" class="recipientBox">
+                    <input  id="recipient" type="number" placeholder="Recipient" class="form-control"/>
+                </div>
+                <br>
+              
+              </div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+
+        <!-- Modal for displaying success/failure messages -->
+      <div id="msgModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm"> <!-- this class sets the proper width and margin of the modal -->
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Attention</h4>
+            </div>
+            <div class="modal-body">
+              <p>The message was successfuly sent</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>        
+        <script src="js/vendor/notify.js"></script>
+        <script src="BYOI-webClient-v2.0/md5/md5.js"></script>
+        <script src="BYOI-webClient-v2.0/config.js"></script>
+        <script src="BYOI-webClient-v2.0/BYOI/byoi.js"></script>
+        <script src="js/bindings.js"></script>
+        
+
+    </body>
+</html>
