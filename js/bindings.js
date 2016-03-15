@@ -31,7 +31,7 @@ $(document).ready(function() {
             //It always returns 1 greater than the length so I reduce its size by 1.
             length1=length1-1; 
             if(length1>40){
-               $("#msg").notify("Message over 40 chars!");
+               $("#msg").notify("Message over 40 chars!\n This will require you to split the message befor sending!");
         }
     });
 
@@ -45,8 +45,15 @@ $(document).ready(function() {
 
     $('.delete-msg-btn').click(function(){
         // delete all selected messages from the main Message Handler
-        $('#messageList').getSelectedMessages().remove();
-        $('#msg').val('');
+        if(!$("#msg").val().length){
+
+               $(".delete-msg-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            $('#messageList').getSelectedMessages().remove();
+            $('#msg').val('');
+        }
+
     });    
 
 
@@ -70,83 +77,127 @@ $(document).ready(function() {
 
     // bind combine method to the message handler
     $('.combine-btn').click(function(){
-        $('#messageList').combineMessages(); 
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+
+               $(".combine-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            $('#messageList').combineMessages(); 
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
     });
 
     // bind split method to the message handler
     $('.split-btn').click(function(){
-        $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage()
-        .splitMessage().relayMessage();
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+
+               $(".split-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage()
+            .splitMessage().relayMessage();
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
     });
 
     // bind checksum method to the message
     $('.add-checksum-btn').click(function(){
-        // get the text
-        var input = $('#msg');
-        // create a new message from the input text and add a checksum to it
-        var msg = $('<div><span class="text">' + input.val() +'</span></div>').BYOIMessage()
-        .addChecksum().relayMessage();
-        // add the message to the input (update field value)
-        BYOI.addMessageToContainer(msg, input);
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+
+               $(".add-checksum-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            // get the text
+            var input = $('#msg');
+            // create a new message from the input text and add a checksum to it
+            var msg = $('<div><span class="text">' + input.val() +'</span></div>').BYOIMessage()
+            .addChecksum().relayMessage();
+            // add the message to the input (update field value)
+            BYOI.addMessageToContainer(msg, input);
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
     });
     
     // bind verify checksum method to the message handler
     $('.verify-checksum-btn').click(function(){
         // create a new message and verify the checksum
-        var verify = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().verifyChecksum();
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+            $(".verify-checksum-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            var verify = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().verifyChecksum();
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
+        
     });
 
     // bind encryption method to the message handler
     $('.encrypt-btn').click(function(){
-        // encrypt the last select
-        var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().encryptMessage(
-            parseInt(+$('#recipient').val()) // encryption key is the recipient node
-        ).relayMessage(); // send to every message handler
-        // add the message to the input (update field value)
-        BYOI.addMessageToContainer(msg, $('#msg'));
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+            $(".encrypt-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            // encrypt the last select
+            var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().encryptMessage(
+                parseInt(+$('#recipient').val()) // encryption key is the recipient node
+            ).relayMessage(); // send to every message handler
+            // add the message to the input (update field value)
+            BYOI.addMessageToContainer(msg, $('#msg'));
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
     });
 
     // bind decryption method to the message handler
     $('.decrypt-btn').click(function(){
-        var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().decryptMessage(
-            parseInt(+$('#recipient').val()) // decryption key is the recipient node
-        ).relayMessage(); // send to every message handler
-        // add the message to the input (update field value)
-        BYOI.addMessageToContainer(msg, $('#msg'));
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+            $(".decrypt-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage().decryptMessage(
+                parseInt(+$('#recipient').val()) // decryption key is the recipient node
+            ).relayMessage(); // send to every message handler
+            // add the message to the input (update field value)
+            BYOI.addMessageToContainer(msg, $('#msg'));
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
     });
 
     // bind random number method to the message handler
     $('.add-random-btn').click(function(){
-        // add a random number to the last selected element of the message handler
-        var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage()
-        .addRandomNumber().relayMessage();
-        // add the message to the input (update field value)
-        BYOI.addMessageToContainer(msg, $('#msg'));
+        if(!$("#msg").val().length){
+            $(".add-random-btn").notify("No message selected!", { position:"right" });
+        }
+        else{
+            // add a random number to the last selected element of the message handler
+            var msg = $('<div><span class="text">' + $('#msg').val() +'</span></div>').BYOIMessage()
+            .addRandomNumber().relayMessage();
+            // add the message to the input (update field value)
+            BYOI.addMessageToContainer(msg, $('#msg'));
+        }
     });
 
     // bind send method to the message handler
     $('.send-btn').click(function(){
-        // create a new message 
-        // NOTE at least one tag with class "text" should be inside the 
-        // html of a message, otherwise the content sent will be an 
-        // empty string
-        //
-        // also, notice that because of this, the message is not inserted with 
-        // all the html tags provided, but only those that were inside the 
-        // tag with the "text" class.
-        var html = '<div><span class="text">'+$('#msg').val()+'</span></div>';
-        // sent message to the server
-        var nodeToSendTo = $('#recipient').val()
-        if (!nodeToSendTo)
-            nodeToSendTo = 0;
-        $(html).BYOIMessage().send(nodeToSendTo);
-        $('#messageList').getSelectedMessages().toggleSelectMessage();
+        if(!$("#msg").val().length){
+            $(".send-btn").notify("No message selected!", { position:"below" });
+        }
+        else{
+            // create a new message 
+            // NOTE at least one tag with class "text" should be inside the 
+            // html of a message, otherwise the content sent will be an 
+            // empty string
+            //
+            // also, notice that because of this, the message is not inserted with 
+            // all the html tags provided, but only those that were inside the 
+            // tag with the "text" class.
+            var html = '<div><span class="text">'+$('#msg').val()+'</span></div>';
+            // sent message to the server
+            var nodeToSendTo = $('#recipient').val()
+            if (!nodeToSendTo)
+                nodeToSendTo = 0;
+            $(html).BYOIMessage().send(nodeToSendTo);
+            $('#messageList').getSelectedMessages().toggleSelectMessage();
+        }
     });
 
 
