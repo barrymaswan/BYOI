@@ -506,7 +506,7 @@ function chunker(text, len){
                     BYOI.onSend(msg);
                 } else {
                     // BYOI.systemMessage('ERROR: message too long to send.');
-                    $(".selected-msg").notify("ERROR: message too long to send.");
+                    $("#msg").notify("ERROR: message too long to send.\n Please split first.");
                 }
             });
             //return the relayed messages to allow for jQuery chaining
