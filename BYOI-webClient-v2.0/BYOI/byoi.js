@@ -142,7 +142,7 @@ function chunker(text, len){
                     setCookie("node", BYOI.myNode);
                     setCookie("name", BYOI.myName);
 
-                    BYOI.systemMessage("new game join");
+                    //BYOI.systemMessage("new game join");
                 }
                 html = '<div class="received"><span class="connected">Node Number:  '+BYOI.myNode+'</span> | Node name: <span class="text">'+BYOI.myName+'</span></div>';
                 metaData = {
@@ -506,7 +506,7 @@ function chunker(text, len){
                     BYOI.onSend(msg);
                 } else {
                     // BYOI.systemMessage('ERROR: message too long to send.');
-                    $(".selected-msg").notify("ERROR: message too long to send.");
+                    $("#msg").notify("ERROR: message too long to send.\n Please split first.");
                 }
             });
             //return the relayed messages to allow for jQuery chaining
@@ -575,7 +575,8 @@ function chunker(text, len){
                 //var prevChunk = msg;
 
                 if(msg.data('text').length <= BYOI.MSG_MAX_LEN){
-                    BYOI.systemMessage('Warning: message too short to split.');
+                    $(".split-btn").notify("Message too short to split!", { position:"right" });
+                    //BYOI.systemMessage('Warning: message too short to split.');
                     return true;
                 }
                 var chunks = chunker(msg.data('text'), BYOI.MSG_MAX_LEN - 3);
@@ -651,7 +652,9 @@ function chunker(text, len){
                 //BYOI.systemMessage('CHECKSUM:' + message);
                 $('.selected-msg').notify('checksum '+message, "success");
             } else {
-                BYOI.systemMessage('ERROR: the message does not contain a checksum');
+                $(".verify-checksum-btn").notify("Message does not contain a checksum!", { position:"right" });
+
+                //BYOI.systemMessage('ERROR: the message does not contain a checksum');
             }
             return result;
         } else {
