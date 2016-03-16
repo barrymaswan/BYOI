@@ -258,11 +258,18 @@
     margin-bottom: 5px;
     padding: 0 0 0 0;
     color: #000000;
-    font-family: Raleway, Helvetica, sans-serif;
+    font-family: Consolas;
     font-weight: 700;
     letter-spacing: 0.1em;
     margin: 0.2em auto 0.2em auto;
     text-transform: uppercase; }
+
+  h4.task {
+    font-family: Consolas;
+    font-weight: bold; }
+
+  #currentTask {
+    font-weight: normal; }
 
   /* class for messages added to the messages screen */
   .selected-msg {
@@ -297,7 +304,8 @@
 
   .sidebar-link {
     color: #000000;
-    font-family: Raleway, Helvetica, sans-serif;
+    /* font-family: Raleway, Helvetica, sans-serif; */
+    font-family: Consolas;
     font-weight: 550;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -330,6 +338,20 @@
   hr {
     height: 1px;
     width: 30%;
-    background-color: rgba(128, 128, 128, 0.3); } }
+    background-color: rgba(128, 128, 128, 0.3); }
+
+  img.sidebar-right {
+    margin-right: 10px; }
+
+  img.sidebar-right:hover {
+    width: 17px;
+    height: 17px; }
+
+  img.sidebar-left:hover {
+    width: 17px;
+    height: 17px; }
+
+  img.sidebar-left {
+    margin-left: 10px; } }
 
 /*# sourceMappingURL=main.css.map */
