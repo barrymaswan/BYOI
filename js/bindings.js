@@ -1,7 +1,8 @@
 $(document).ready(function() {
    BYOI.connect();
    $(".shell-top-bar").val(BYOI.myName);
-
+   $("#messageList").sortable();
+   
     function populateBar() {
         alert("populate bar is called");
     }
