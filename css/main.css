@@ -42,17 +42,35 @@
 /*******************************************************************************/
 @media only screen and (max-width: 768px) {
   h2.header-content {
-    font-family: Calibri;
+    font-family: Consolas;
     font-size: 14px;
-    margin-top: 1px; }
+    margin-top: 3px;
+    font-weight: bold; }
 
   h4.task {
+    font-family: Consolas;
+    font-weight: bold;
     font-size: 14px; }
 
+  #currentTask {
+    font-weight: normal; }
+
   img.logo {
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     margin-bottom: 1px; }
+
+  div.msg-box {
+    display: inline; }
+
+  .msg {
+    font-family: Consolas; }
+
+  input.recipientBox {
+    font-family: Consolas; }
+
+  textarea {
+    resize: none; }
 
   div.sidebar {
     display: none; }
@@ -123,7 +141,7 @@
     color: #45D40C;
     font: 0.8em 'Andale Mono', Consolas, 'Courier New';
     line-height: 1.6em;
-    height: 60vh;
+    height: 45vh;
     overflow: auto;
     -webkit-border-bottom-right-radius: 3px;
     -webkit-border-bottom-left-radius: 3px;
@@ -286,11 +304,9 @@
     color: #00bfff; }
 
   .terminal-msg:hover {
-    background-color: gray; }
-
-  footer {
-    font-family: Courier New;
-    font-weight: bold; }
+    background-color: gray;
+    cursor: pointer;
+    cursor: hand; }
 
   input {
     font-family: Courier New; }
@@ -352,6 +368,9 @@
     height: 17px; }
 
   img.sidebar-left {
-    margin-left: 10px; } }
+    margin-left: 10px; }
+
+  input.recipientBox {
+    font-family: Consolas; } }
 
 /*# sourceMappingURL=main.css.map */
