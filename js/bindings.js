@@ -233,4 +233,10 @@ $(document).ready(function() {
     });
     // add the second message handler to the DOM
     $('#sidebar').append(encrypted);
+
+    // cause navbar to collapse when clicked on in mobile view
+
+    $('.nav').on('click', function(){
+        $('.navbar-toggle').click() //bootstrap 3.x by Richard
+    });
 });

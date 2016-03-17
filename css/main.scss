@@ -107,6 +107,12 @@
 
     }
 
+    .send-btn {
+        margin-top: 8px;
+        color: white;
+        background-color: black;
+    }
+
     .nav.navbar-nav.pull-left {
         float: left !important;
     }
@@ -447,6 +453,16 @@
 
     input.recipientBox {
         font-family: Consolas;
+    }
+
+    .send-btn {
+        margin-top: 3px;
+        color: white;
+        background-color: black;
+    }
+
+    .send-btn:hover {
+        color: green;
     }
 
 }

@@ -88,6 +88,11 @@
     cursor: hand;
     font-weight: 600; }
 
+  .send-btn {
+    margin-top: 8px;
+    color: white;
+    background-color: black; }
+
   .nav.navbar-nav.pull-left {
     float: left !important; }
 
@@ -371,6 +376,14 @@
     margin-left: 10px; }
 
   input.recipientBox {
-    font-family: Consolas; } }
+    font-family: Consolas; }
+
+  .send-btn {
+    margin-top: 3px;
+    color: white;
+    background-color: black; }
+
+  .send-btn:hover {
+    color: green; } }
 
 /*# sourceMappingURL=main.css.map */
