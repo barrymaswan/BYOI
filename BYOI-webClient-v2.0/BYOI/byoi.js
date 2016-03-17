@@ -150,7 +150,7 @@ function chunker(text, len){
                     'text': BYOI.myName,
                     'session': BYOI.mySession
                 };
-                document.getElementById('title-bar').innerHTML = BYOI.myName + ' | Node: ' + BYOI.myNode;
+                // document.getElementById('title-bar').innerHTML = BYOI.myName + ' | Node: ' + BYOI.myNode;
 
             }
 
@@ -175,10 +175,10 @@ function chunker(text, len){
                 document.getElementById('currentTask').innerHTML = task;
             }
             // create a new message from the received data
-            // var msg = $(html).BYOIMessage(metaData)
-            //     .relayMessage(); // relay the message to all message handlers
+            var msg = $(html).BYOIMessage(metaData)
+                .relayMessage(); // relay the message to all message handlers
             
-            document.getElementById('title-bar').innerHTML = BYOI.myName + ' | Node: ' + BYOI.myNode;
+            // document.getElementById('title-bar').innerHTML = BYOI.myName + ' | Node: ' + BYOI.myNode;
 
             // call the hook
             BYOI.onMessageReceived(type, msg);
