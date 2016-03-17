@@ -67,10 +67,9 @@ $(document).ready(function() {
         if($(this).hasClass('selected-msg')){
                 $(this).removeClass('selected-msg');
                 $("#textbox-msg").val("");
-                // msgSelected = false;
             } else {
+                $('.selected-msg').removeClass('selected-msg');
                 $(this).addClass('selected-msg');
-                // msgSelected = true;
                 var content = $(this).html();
                 $("#textbox-msg").val(content);
         }
